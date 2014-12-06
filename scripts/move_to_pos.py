@@ -8,7 +8,7 @@ import sys
 filename = sys.argv[1]
 
 rospy.init_node('move_to_starting_pos')
-limb = baxter_interface.Limb('left')
+limb = baxter_interface.Limb('right')
 
 angles = limb.joint_angles()
 print angles
@@ -21,7 +21,7 @@ joint_names = lines[0].rstrip().split(',')
 start_joints = lines[1].rstrip().split(',')
 joint_pos = zip(joint_names, start_joints)
 for joint, pos in joint_pos: 
-	if joint != "time" and joint.startswith('left') and joint != 'left_gripper': 
+	if joint != "time" and joint.startswith('right') and joint != 'right_gripper': 
 		start_pos[joint] = float(pos)
 
 print start_pos
